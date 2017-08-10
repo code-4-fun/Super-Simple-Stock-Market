@@ -1,16 +1,20 @@
 package com.example.demo.simple.stock.service.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.UUID;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Trade {
 
-    private final Stock stock;
+    private final UUID tradeTransactionRef;
+    private final StockFactory.Stock stock;
     private final Instant timestamp;
     private final int quantity;
     private final TradeIndicator tradeIndicator;

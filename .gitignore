@@ -1,3 +1,11 @@
 .gradle/
 .idea/
 build/
+simple_super_stock_market.iml
+simple_super_stock_market.ipr
+simple_super_stock_market.iws
+bin/
+*.prefs
+.project
+.classpath
+.settings/
