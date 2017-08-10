@@ -8,6 +8,7 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Stream;
 
 /**
@@ -15,7 +16,7 @@ import java.util.stream.Stream;
  */
 public class TradeTransactionRepository implements TradeTransactionFacade {
 
-    private static ConcurrentSkipListSet<Trade> tradeCollection = new ConcurrentSkipListSet<>();
+    private static LinkedBlockingQueue<Trade> tradeCollection = new LinkedBlockingQueue<>();
 
     @Override
     public Trade recordTradeTransaction(StockFactory.Stock stock, Trade.TradeIndicator indicator, int quantity, BigDecimal stockPrice) {

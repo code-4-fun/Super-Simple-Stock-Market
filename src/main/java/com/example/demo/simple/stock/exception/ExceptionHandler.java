@@ -7,12 +7,12 @@ package com.example.demo.simple.stock.exception;
  */
 public final class ExceptionHandler {
 
-    public static void handleExceptions(Throwable throwable, boolean reThrowException) throws AssertionError {
+    public static void handleExceptions(StockMarketException exception, boolean reThrowException) throws StockMarketException {
         // log exceptions and re-throw them as - StockMarketException
         System.err.println("Exception Occurred:");
-        throwable.printStackTrace();
+        exception.printStackTrace();
         if (reThrowException) {
-            throw new AssertionError(throwable);
+            throw new StockMarketException(exception);
         }
     }
 

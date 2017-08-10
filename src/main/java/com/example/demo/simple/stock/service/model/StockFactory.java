@@ -39,7 +39,9 @@ public final class StockFactory {
         public PreferredStock(String symbol, BigDecimal lastDividend, BigDecimal parValue, BigDecimal fixedDividend) {
             super(symbol, StockClassification.PREFERRED, lastDividend, parValue);
             this.fixedDividend = fixedDividend;
-            isValueGreaterThanOrEqualTo.test(fixedDividend, BigDecimal.ZERO);
+            if (!isValueGreaterThanZero.test(fixedDividend, BigDecimal.ZERO)) {
+                ExceptionHandler.handleExceptions(new StockMarketException("Fixed Dividend - " + fixedDividend + " should be greater than 0"), true);
+            }
         }
 
         @Override
@@ -77,7 +79,7 @@ public final class StockFactory {
         private final BigDecimal parValue;
 
         // validator
-        protected final BiPredicate<BigDecimal, BigDecimal> isValueGreaterThanOrEqualTo = (value, number) -> ((value != null) && value.compareTo(number) >= 0);
+        protected final BiPredicate<BigDecimal, BigDecimal> isValueGreaterThanZero = (value, number) -> ((value != null) && value.compareTo(number) > 0);
 
         protected Stock(String symbol, StockClassification stockType, BigDecimal lastDividend, BigDecimal parValue) {
             this.symbol = symbol;
@@ -103,6 +105,7 @@ public final class StockFactory {
          * @return calculated P/E ratio for the given stock
          */
         public BigDecimal pToERatio(BigDecimal price) {
+            assertValueNotNullAndGreaterThanZero(price, "Stock Price");
             return formatToPercentageScale(
                     price.divide(this.getLastDividend(), PRECISION)
             ).stripTrailingZeros();
@@ -114,11 +117,11 @@ public final class StockFactory {
          * @param stock - stock data
          */
         protected void assertStockParams(Stock stock) {
-            if (isValueGreaterThanOrEqualTo.test(stock.getLastDividend(), BigDecimal.ZERO)) {
-                ExceptionHandler.handleExceptions(new StockMarketException("Last Dividend should be greater than 0"), true);
+            if (!isValueGreaterThanZero.test(stock.getLastDividend(), BigDecimal.ZERO)) {
+                ExceptionHandler.handleExceptions(new StockMarketException("Last Dividend - " + stock.getLastDividend() + " should be greater than 0"), true);
             }
-            if (isValueGreaterThanOrEqualTo.test(stock.getParValue(), BigDecimal.ZERO)) {
-                ExceptionHandler.handleExceptions(new StockMarketException("Par Value should be greater than 0"), true);
+            if (!isValueGreaterThanZero.test(stock.getParValue(), BigDecimal.ZERO)) {
+                ExceptionHandler.handleExceptions(new StockMarketException("Par Value - " + stock.getParValue() + " should be greater than 0"), true);
             }
         }
 
@@ -129,7 +132,7 @@ public final class StockFactory {
          * @param valueLabel - Value Label to be put in error message
          */
         protected void assertValueNotNullAndGreaterThanZero(BigDecimal value, String valueLabel) {
-            if (isValueGreaterThanOrEqualTo.test(value, BigDecimal.ZERO)) {
+            if (!isValueGreaterThanZero.test(value, BigDecimal.ZERO)) {
                 ExceptionHandler.handleExceptions(new StockMarketException(valueLabel + " should be greater than 0"), true);
             }
         }
