@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.0" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.example.demo.simple.stock.service.model.StockFactory.Stock" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/model/StockFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="371" width="386" x="1495" y="643"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.example.demo.simple.stock.service.model.StockFactory" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/model/StockFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="438" x="1902" y="286"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.example.demo.simple.stock.service.model.Trade" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/model/Trade.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="317" width="327" x="690" y="286"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="4" language="java" 
+    name="com.example.demo.simple.stock.service.model.StockFactory.StockClassification" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/model/StockFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="220" x="1439" y="1054"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="5" language="java" name="com.example.demo.simple.stock.statistics.GeometricMeanEvaluatorCollector" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/statistics/GeometricMeanEvaluatorCollector.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="209" width="331" x="686" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="6" language="java" name="com.example.demo.simple.stock.service.model.Trade.TradeIndicator" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/model/Trade.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="220" x="690" y="643"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="7" language="java" name="com.example.demo.simple.stock.service.StockServiceImpl" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/StockServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="173" width="369" x="1522" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="8" language="java" name="com.example.demo.simple.stock.repository.TradeTransactionFacade" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/repository/TradeTransactionFacade.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="425" x="1057" y="286"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="9" language="java" name="com.example.demo.simple.stock.repository.TradeTransactionRepository" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/repository/TradeTransactionRepository.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="425" x="1057" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.example.demo.simple.stock.exception.ExceptionHandler" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/exception/ExceptionHandler.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="320" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="11" language="java" name="com.example.demo.simple.stock.service.StockService" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/StockService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="340" x="1522" y="286"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="12" language="java" name="com.example.demo.simple.stock.service.model.StockFactory.CommonStock" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/model/StockFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="273" x="1699" y="1054"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.example.demo.simple.stock.service.model.StockFactory.PreferredStock" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/service/model/StockFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="338" x="2012" y="1054"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.example.demo.simple.stock.exception.StockMarketException" 
+    project="simple_super_stock_market" 
+    file="/simple_super_stock_market/src/main/java/com/example/demo/simple/stock/exception/StockMarketException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="245" x="401" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="15">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="16">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="17" name="tradeTransactionFacade"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="19">    
+    <bendpoint x="1966" y="643"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="13"/>  
+  </nesting>  
+  <association id="20">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="21" name="INSTANCE"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="23">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <realization id="24">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="25">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="26" name="stockType"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="29">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="30" name="tradeCollection"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="32">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <association id="33">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="34" name="tradeIndicator"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="37" name="stock"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="39">    
+    <bendpoint x="1911" y="643"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="12"/>  
+  </nesting>  
+  <realization id="40">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <nesting id="41">    
+    <bendpoint x="1464" y="643"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </nesting>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
