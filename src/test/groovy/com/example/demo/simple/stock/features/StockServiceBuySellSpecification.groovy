@@ -1,10 +1,9 @@
 package com.example.demo.simple.stock.features
 
 import com.example.demo.simple.stock.exception.StockMarketException
-import com.example.demo.simple.stock.service.model.StockFactory
 import com.example.demo.simple.stock.service.model.StockFactory.Stock
 import com.example.demo.simple.stock.service.model.Trade
-import spock.lang.Narrative
+import spock.lang.Title
 import spock.lang.Unroll
 
 import java.time.Instant
@@ -15,8 +14,8 @@ import static com.example.demo.simple.stock.service.model.Trade.TradeIndicator.B
 import static com.example.demo.simple.stock.service.model.Trade.TradeIndicator.SELL
 import static java.math.BigDecimal.valueOf
 
-@Narrative("Specification for Stock Buy / Sell operations")
-class StockServiceBuySellSpecifications extends BaseSpecification {
+@Title("Specification for Stock Buy / Sell operations")
+class StockServiceBuySellSpecification extends BaseSpecification {
 
     @Unroll
     def "[ #caseId ] When #desc"(caseId, desc, stockType, tradeIndicator, symbol, lastDividend, parValue, fixedDividend) {

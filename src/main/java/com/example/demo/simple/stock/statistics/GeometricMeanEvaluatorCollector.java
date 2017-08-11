@@ -20,7 +20,7 @@ import java.util.stream.Collector;
  */
 public class GeometricMeanEvaluatorCollector implements Collector<Double, ArrayList<Double>, BigDecimal> {
 
-    private static final Set<Collector.Characteristics> CH_ID = Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.IDENTITY_FINISH));
+    private static final Set<Collector.Characteristics> CH_ID = Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.UNORDERED));
 
     @Override
     public Supplier<ArrayList<Double>> supplier() {

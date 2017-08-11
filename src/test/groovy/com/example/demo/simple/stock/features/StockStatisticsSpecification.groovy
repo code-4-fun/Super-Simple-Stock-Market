@@ -2,14 +2,14 @@ package com.example.demo.simple.stock.features
 
 import com.example.demo.simple.stock.exception.StockMarketException
 import com.example.demo.simple.stock.service.model.StockFactory
-import spock.lang.Narrative
+import spock.lang.Title
 import spock.lang.Unroll
 
 import static com.example.demo.simple.stock.service.model.StockFactory.StockClassification.COMMON
 import static com.example.demo.simple.stock.service.model.StockFactory.StockClassification.PREFERRED
 
-@Narrative("Specifications for calculating Stock Dividend Yield and P/E Ratio")
-class StockStatisticsSpecifications extends BaseSpecification {
+@Title("Specifications for calculating Stock Dividend Yield and P/E Ratio")
+class StockStatisticsSpecification extends BaseSpecification {
 
     @Unroll
     def "[ #caseId ] Calculate Last Dividend for #desc lastDividend = #lastDividend and price = #price"(

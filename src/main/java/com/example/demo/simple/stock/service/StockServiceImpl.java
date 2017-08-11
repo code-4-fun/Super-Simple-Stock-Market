@@ -1,5 +1,7 @@
 package com.example.demo.simple.stock.service;
 
+import com.example.demo.simple.stock.exception.ExceptionHandler;
+import com.example.demo.simple.stock.exception.StockMarketException;
 import com.example.demo.simple.stock.repository.TradeTransactionFacade;
 import com.example.demo.simple.stock.service.model.StockFactory;
 import com.example.demo.simple.stock.service.model.Trade;
@@ -8,7 +10,16 @@ import com.example.demo.simple.stock.statistics.GeometricMeanEvaluatorCollector;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 /**
@@ -39,32 +50,40 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public BigDecimal volumeWeightedStockPriceInInterval(StockFactory.Stock stock, int intervalInMinutes) {
+
+        if (stock == null || intervalInMinutes < 0) {
+            ExceptionHandler.handleExceptions(new StockMarketException("Stock information and time interval (with value greater than 0 are mandatory)"), true);
+        }
+
         // freeze Cut-Off Time
         final Instant intervalCutOffTime = Instant.now().minus(Duration.ofMinutes(intervalInMinutes));
 
         final Stream<Trade> tradeStream = this.tradeTransactionFacade.getAllRecordedTradeTransactions();
 
+        AtomicInteger quantityTotal = new AtomicInteger(0);
+
         BigDecimal priceAndQuantitySum = tradeStream.parallel()
                 .filter(trade -> trade.getTimestamp().isAfter(intervalCutOffTime))
                 .filter(trade -> trade.getStock().getSymbol().equals(stock.getSymbol()))
-                .map(trade -> trade.getPrice().multiply(BigDecimal.valueOf(trade.getQuantity())))
+                .map(trade -> {
+                    quantityTotal.addAndGet(trade.getQuantity());
+                    return trade.getPrice().multiply(BigDecimal.valueOf(trade.getQuantity()));
+                })
                 .reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
 
         if (priceAndQuantitySum.compareTo(BigDecimal.ZERO) == 0) {
             return BigDecimal.ZERO;
         }
 
-        int totalQuantity = tradeStream.mapToInt(Trade::getQuantity).sum();
-
-        return returnPriceValueAsCurrency.apply(priceAndQuantitySum.divide(BigDecimal.valueOf(totalQuantity), stock.getPRECISION()));
+        //int totalQuantity = tradeStream.mapToInt(Trade::getQuantity).sum();
+        return returnPriceValueAsCurrency.apply(priceAndQuantitySum.divide(BigDecimal.valueOf(quantityTotal.get()), stock.getPRECISION()));
     }
 
     @Override
     public BigDecimal getGBCEAllShareIndex() {
         final Stream<Trade> tradeStream = this.tradeTransactionFacade.getAllRecordedTradeTransactions();
 
-        BigDecimal geometricMean = tradeStream.parallel()
-                .map(Trade::getPrice)
+        BigDecimal geometricMean = tradeStream.map(Trade::getPrice)
                 .map(BigDecimal::doubleValue)
                 .filter(price -> (price > 0))
                 .collect(new GeometricMeanEvaluatorCollector());

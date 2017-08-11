@@ -8,6 +8,9 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Subject
 
+import java.time.Duration
+import java.time.Instant
+
 import static com.example.demo.simple.stock.service.model.StockFactory.StockClassification.COMMON
 import static com.example.demo.simple.stock.service.model.StockFactory.StockClassification.PREFERRED
 
@@ -47,6 +50,32 @@ class BaseSpecification extends Specification {
         } else {
             return BigDecimal.valueOf(data)
         }
+    }
+
+    protected void generateTradeData(stock) {
+        // lets buy some stocks within the interval of 15 minutes
+        stockService.buyStock(stock, Instant.now(), 10, BigDecimal.valueOf(100))
+        stockService.buyStock(stock, Instant.now().minus(Duration.ofMinutes(12)), 10, BigDecimal.valueOf(100))
+        stockService.buyStock(stock, Instant.now().minus(Duration.ofMinutes(1)), 10, BigDecimal.valueOf(100))
+        stockService.buyStock(stock, Instant.now().minus(Duration.ofMinutes(3)), 10, BigDecimal.valueOf(100))
+        stockService.buyStock(stock, Instant.now().minus(Duration.ofMinutes(14)), 10, BigDecimal.valueOf(100))
+        stockService.buyStock(stock, Instant.now().minus(Duration.ofMinutes(8)), 10, BigDecimal.valueOf(100))
+
+        // and sell a few within the interval of 15 minutes
+        stockService.sellStock(stock, Instant.now(), 10, BigDecimal.valueOf(100))
+        stockService.sellStock(stock, Instant.now().minus(Duration.ofMinutes(2)), 10, BigDecimal.valueOf(100))
+        stockService.sellStock(stock, Instant.now().minus(Duration.ofMinutes(10)), 10, BigDecimal.valueOf(100))
+        stockService.sellStock(stock, Instant.now().minus(Duration.ofMinutes(13)), 10, BigDecimal.valueOf(100))
+        stockService.sellStock(stock, Instant.now().minus(Duration.ofMinutes(4)), 10, BigDecimal.valueOf(100))
+        stockService.sellStock(stock, Instant.now().minus(Duration.ofMinutes(8)), 10, BigDecimal.valueOf(100))
+
+        // these transactions will be outside 15 minutes window
+        stockService.buyStock(stock, Instant.now().minus(Duration.ofMinutes(30)), 10, BigDecimal.valueOf(100))
+        stockService.buyStock(stock, Instant.now().minus(Duration.ofMinutes(16)), 10, BigDecimal.valueOf(100))
+        stockService.sellStock(stock, Instant.now().minus(Duration.ofMinutes(17)), 10, BigDecimal.valueOf(100))
+        stockService.sellStock(stock, Instant.now().minus(Duration.ofMinutes(20)), 10, BigDecimal.valueOf(100))
+
+        println "Number of Transactions recorded are - ${tradeTransactionFacade.getAllRecordedTradeTransactions().count()}"
     }
 
 
