@@ -20,4 +20,19 @@ Implementation for Simple Stock Market Problem Statement
 
 ---
 
-TBD
+##### Tech Stack
+I tried to keep the solution very basic and minimal. The tech stack I used is as follows;
+
+- Source: Java - 8
+- Test Framework: [Spock Framework](Spock Framework) and Groovy - 2.4.10
+- Build System: Gradle - 3.5
+
+##### How to build and run test cases
+
+- To build the source;
+    ```
+    ./gradlew clean build
+    ```
+    
+    This command will build the source, execute test specifications and prepare execution report. This report can be accessed at;
+    > build/reports/tests/test/index.html
