@@ -1,6 +1,8 @@
 # Super-Simple-Stock-Market
 Implementation for Simple Stock Market Problem Statement
 
+> Click here to read [Wiki](https://github.com/code-4-fun/Super-Simple-Stock-Market/wiki/Super-Simple-Stock-Market-Application)
+
 ### Problem Statement
 
 ---
